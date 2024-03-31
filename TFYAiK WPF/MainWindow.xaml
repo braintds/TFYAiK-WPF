@@ -5,44 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TFYAiK_WPF"
         mc:Ignorable="d"
-        Title="PASCAL: логические операторы" Height="532" Width="961">
+        Title="PASCAL: логические операторы" Height="532" Width="961" WindowStartupLocation="CenterScreen">
+    <StackPanel>
 
-    <Menu Height="25" VerticalAlignment="Top">
-        <MenuItem Header="Файл">
-            <MenuItem Name="Create" Header="Создать" ></MenuItem>
-            <MenuItem Header="Открыть" ></MenuItem>
-            <MenuItem Header="Сохранить"></MenuItem>
-            <MenuItem Header="Сохранить как"></MenuItem>
-            <MenuItem Header="Выход"></MenuItem>
-            <Separator />
-        </MenuItem>
-        <MenuItem Header="Правка" >
-            <MenuItem Header="Отменить"></MenuItem>
-            <MenuItem Header="Повторить"></MenuItem>
-            <MenuItem Header="Вырезать"></MenuItem>
-            <MenuItem Header="Копировать"></MenuItem>
-            <MenuItem Header="Вставить"></MenuItem>
-            <MenuItem Header="Удалить"></MenuItem>
-            <MenuItem Header="Выделить все"></MenuItem>
-        </MenuItem>
-        <MenuItem Header="Текст" >
-            <MenuItem Header="Постановка задачи"></MenuItem>
-            <MenuItem Header="Грамматика"></MenuItem>
-            <MenuItem Header="Классификация грамматики"></MenuItem>
-            <MenuItem Header="Метод анализа"></MenuItem>
-            <MenuItem Header="Диагностика и нейтрализация ошибок"></MenuItem>
-            <MenuItem Header="Тестовый пример"></MenuItem>
-            <MenuItem Header="Список литературы"></MenuItem>
-            <MenuItem Header="Исходный код программы"></MenuItem>
-        </MenuItem>
-        <MenuItem Header="Пуск"></MenuItem>
-        <MenuItem Header="Вид">
-            <MenuItem Header="Увеличить масштаб" ></MenuItem>
-            <MenuItem Header="Уменьшить масштаб" ></MenuItem>
-        </MenuItem>
-        <MenuItem Header="Справка">
-            <MenuItem Header="Вызов справки" ></MenuItem>
-            <MenuItem Header="О программе"></MenuItem>
-        </MenuItem>
-    </Menu>
+        <Menu Height="25" VerticalAlignment="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Name="CreateMenuItem" Header="Создать" Click="CreateMenuItem_Click"></MenuItem>
+                <MenuItem Name="OpenMenuItem" Header="Открыть" Click="OpenMenuItem_Click"></MenuItem>
+                <MenuItem Name="SaveMenuItem" Header="Сохранить" Click="SaveMenuItem_Click"></MenuItem>
+                <MenuItem Name="SaveAsMenuItem" Header="Сохранить как" Click="SaveAsMenuItem_Click"></MenuItem>
+                <MenuItem Name="ExitMenuItem" Header="Выход" Click="ExitMenuItem_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Правка" >
+                <MenuItem Name="UndoMenuItem" Header="Отменить" Click="UndoMenuItem_Click"></MenuItem>
+                <MenuItem Name="RedoMenuItem" Header="Повторить" Click="RedoMenuItem_Click"></MenuItem>
+                <MenuItem Name="CutMenuItem" Header="Вырезать" Click="CutMenuItem_Click" ></MenuItem>
+                <MenuItem Name="CopyMenuItem" Header="Копировать" Click="CopyMenuItem_Click"></MenuItem>
+                <MenuItem Name="PasteMenuItem" Header="Вставить" Click="PasteMenuItem_Click"></MenuItem>
+                <MenuItem Name="DeleteMenuItem" Header="Удалить" Click="DeleteMenuItem_Click"></MenuItem>
+                <MenuItem Name="SelectAllMenuItem" Header="Выделить все" Click="StartMenuItem_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Текст" >
+                <MenuItem Name="TaskMenuItem" Header="Постановка задачи" Click="TaskMenuItem_Click"></MenuItem>
+                <MenuItem Name="GrammarMenuItem" Header="Грамматика" Click="GrammarMenuItem_Click"></MenuItem>
+                <MenuItem Name="GrammarClasifyMenuItem" Header="Классификация грамматики" Click="GrammarClasifyMenuItem_Click"></MenuItem>
+                <MenuItem Name="MethodAnalisMenuItem" Header="Метод анализа" Click="MethodAnalisMenuItem_Click"></MenuItem>
+                <MenuItem Name="DiagnosticsMenuItem" Header="Диагностика и нейтрализация ошибок" Click="DiagnosticsMenuItem_Click"></MenuItem>
+                <MenuItem Name="TestExampleMenuItem" Header="Тестовый пример" Click="TestExampleMenuItem_Click"></MenuItem>
+                <MenuItem Name="BibliographyMenuItem" Header="Список литературы" Click="BibliographyMenuItem_Click"></MenuItem>
+                <MenuItem Name="SourceCodeMenuItem" Header="Исходный код программы" Click="SourceCodeMenuItem_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Name="StartMenuItem" Header="Пуск" Click="StartMenuItem_Click" ></MenuItem>
+            <MenuItem Header="Вид">
+                <MenuItem Name="ZoomPlusMenuItem" Header="Увеличить масштаб" Click="ZoomPlusMenuItem_Click"></MenuItem>
+                <MenuItem Name="ZoomMinusMenuItem" Header="Уменьшить масштаб" Click="ZoomMinusMenuItem_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Name="ReferenceMenuItem" Header="Вызов справки" Click="ReferenceMenuItem_Click"></MenuItem>
+                <MenuItem Name="AboutMenuItem" Header="О программе" Click="AboutMenuItem_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Button x:Name="SaveButton" Content="Button"  IsDefault="True" Width="40" Height="40" HorizontalAlignment="Left" Margin="12,7,0,0" Click="SaveButton_Click"/>
+        <Button x:Name="СreateNewButton" Content="Button" Height="40" Width="40" HorizontalAlignment="Left" Margin="58,-40,0,40" Click="СreateNewButton_Click"/>
+        <Button x:Name="OpenButton" Content="Button" Height="40" Width="40" HorizontalAlignment="Left" Margin="104,-80,0,40" Click="OpenButton_Click"/>
+        <Button x:Name="UndoButton" Content="Button" Height="40" Width="40" HorizontalAlignment="Left" Margin="192,-80,0,40" Click="UndoButton_Click"/>
+        <Button x:Name="RedoButton" Content="Button" Height="40" Width="40" HorizontalAlignment="Left" Margin="238,-80,0,40" Click="RedoButton_Click"/>
+        <Button x:Name="PasteButton" Content="Button" Height="40" Width="40" HorizontalAlignment="Left" Margin="321,-80,0,40" Click="PasteButton_Click"/>
+        <Button x:Name="CopyButton" Content="Button" Height="40" Width="40" HorizontalAlignment="Left" Margin="367,-80,0,40" Click="CopyButton_Click"/>
+        <Button x:Name="CutButton" Content="Button" Height="40" Width="40" HorizontalAlignment="Left" Margin="413,-80,0,40" Click="CutButton_Click"/>
+        <Grid Height="415" Margin="0,-20,0,0" Background="#FFA4A3A3" Width="951">
+            <GridSplitter Grid.Column="1" Grid.Row="0" ShowsPreview="False" Height="100" Width="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                <GridSplitter.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </GridSplitter.RenderTransform>
+            </GridSplitter>
+        </Grid>
+
+    </StackPanel>
+
+
 </Window>
