@@ -88,6 +88,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\LexicalScanner.cs" />
+    <Compile Include="Model\Parser.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Base\ViewModel.cs" />
     <Compile Include="Views\Windows\MainWindow.xaml.cs">
@@ -130,9 +132,7 @@
     <Resource Include="Image\redo.png" />
     <Resource Include="Image\save.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Image\create new.png" />
     <Resource Include="Image\open new.png" />
