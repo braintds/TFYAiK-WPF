@@ -1,0 +1,83 @@
+﻿<Window x:Class="TFYAiK_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TFYAiK_WPF" 
+        xmlns:vm="clr-namespace:TFYAiK_WPF.ViewModel"
+        mc:Ignorable="d"
+        Title="{Binding Path=Title}"
+        Height="532" Width="961" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <GridSplitter Grid.Row="1" Height="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="#FF151414" />
+        <Menu Height="516">
+            <MenuItem Header="Файл">
+                <MenuItem Name="CreateMenuItem" Header="Создать" Click="CreateMenuItem_Click"></MenuItem>
+                <MenuItem Name="OpenMenuItem" Header="Открыть" Click="OpenMenuItem_Click"></MenuItem>
+                <MenuItem Name="SaveMenuItem" Header="Сохранить" Click="SaveMenuItem_Click"></MenuItem>
+                <MenuItem Name="SaveAsMenuItem" Header="Сохранить как" Click="SaveAsMenuItem_Click"></MenuItem>
+                <MenuItem Name="ExitMenuItem" Header="Выход" Click="ExitMenuItem_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Правка" >
+                <MenuItem Name="UndoMenuItem" Header="Отменить" Click="UndoMenuItem_Click"></MenuItem>
+                <MenuItem Name="RedoMenuItem" Header="Повторить" Click="RedoMenuItem_Click"></MenuItem>
+                <MenuItem Name="CutMenuItem" Header="Вырезать" Click="CutMenuItem_Click" ></MenuItem>
+                <MenuItem Name="CopyMenuItem" Header="Копировать" Click="CopyMenuItem_Click"></MenuItem>
+                <MenuItem Name="PasteMenuItem" Header="Вставить" Click="PasteMenuItem_Click"></MenuItem>
+                <MenuItem Name="DeleteMenuItem" Header="Удалить" Click="DeleteMenuItem_Click"></MenuItem>
+                <MenuItem Name="SelectAllMenuItem" Header="Выделить все" Click="StartMenuItem_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Текст" >
+                <MenuItem Name="TaskMenuItem" Header="Постановка задачи" Click="TaskMenuItem_Click"></MenuItem>
+                <MenuItem Name="GrammarMenuItem" Header="Грамматика" Click="GrammarMenuItem_Click"></MenuItem>
+                <MenuItem Name="GrammarClasifyMenuItem" Header="Классификация грамматики" Click="GrammarClasifyMenuItem_Click"></MenuItem>
+                <MenuItem Name="MethodAnalisMenuItem" Header="Метод анализа" Click="MethodAnalisMenuItem_Click"></MenuItem>
+                <MenuItem Name="DiagnosticsMenuItem" Header="Диагностика и нейтрализация ошибок" Click="DiagnosticsMenuItem_Click"></MenuItem>
+                <MenuItem Name="TestExampleMenuItem" Header="Тестовый пример" Click="TestExampleMenuItem_Click"></MenuItem>
+                <MenuItem Name="BibliographyMenuItem" Header="Список литературы" Click="BibliographyMenuItem_Click"></MenuItem>
+                <MenuItem Name="SourceCodeMenuItem" Header="Исходный код программы" Click="SourceCodeMenuItem_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Name="StartMenuItem" Header="Пуск" Click="StartMenuItem_Click" ></MenuItem>
+            <MenuItem Header="Вид">
+                <MenuItem Name="ZoomPlusMenuItem" Header="Увеличить масштаб" Click="ZoomPlusMenuItem_Click"></MenuItem>
+                <MenuItem Name="ZoomMinusMenuItem" Header="Уменьшить масштаб" Click="ZoomMinusMenuItem_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Name="ReferenceMenuItem" Header="Вызов справки" Click="ReferenceMenuItem_Click"></MenuItem>
+                <MenuItem Name="AboutMenuItem" Header="О программе" Click="AboutMenuItem_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+
+
+
+        <Canvas Grid.Row="0" Background="LightGreen" Margin="0,64,0,2">
+            <TextBlock>Правая панель</TextBlock>
+        </Canvas>
+        <Canvas Grid.Row="2" Background="#dfffff">
+            <TextBlock Canvas.Left="60">Нижняя панель</TextBlock>
+            <RichTextBox Canvas.Left="10" HorizontalAlignment="Center" Canvas.Top="10" VerticalAlignment="Top" Grid.Row="1" Height="237" Width="931">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="RichTextBox"/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <RichTextBox Height="171" Canvas.Left="10" Canvas.Top="-186" Grid.Row="0" Width="936" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="RichTextBox"/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </Canvas>
+    </Grid>
+</Window>
